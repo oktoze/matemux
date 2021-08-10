@@ -26,7 +26,7 @@ def cook_window(window: Window, session: Session, needs_creation: bool=True):
         split_flag = "v" if split_vertical else "h"
 
         if i > 0:
-            os.system(f"tmux split-window -{split_flag} -t {session.name}:{window.name} -c root")
+            os.system(f"tmux split-window -{split_flag} -t {session.name}:{window.name} -c {root}")
 
         commands = [*session.commands, *window.commands, *pane.commands]
 
