@@ -1,7 +1,7 @@
 from os import path
 from typing import List, Union
 
-from parser import ArgParser
+from matemux.parser import ArgParser
 
 
 def validate_directory(dir: Union[str, None], field: str):

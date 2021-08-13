@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
 
+dist/
+
 # LSP config
 pyrightconfig.json

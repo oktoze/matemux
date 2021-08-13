@@ -4,16 +4,19 @@ import sys
 import yaml
 from yaml.scanner import ScannerError
 
-from cook import cook_session
-from recipe import InvalidRecipeError, Session
+from matemux.cook import cook_session
+from matemux.recipe import InvalidRecipeError, Session
 
 MATEMUX_DIR = os.environ.get("MATEMUX_DIR", "~/.matemux")
 
+
 def show_help():
-    with open("help.txt", "r") as helpfile:
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    with open(f"{dir_path}/help.txt", "r") as helpfile:
         print("".join(helpfile.readlines()))
 
-if __name__ == "__main__":
+
+def main():
     if len(sys.argv) < 2:
         show_help()
         sys.exit()
@@ -37,7 +40,9 @@ if __name__ == "__main__":
                 args_dict[a[2:]] = args[2 * i + 1]
 
     try:
-        with open(os.path.expanduser(f"{MATEMUX_DIR}/{recipe_name}.yml"), "r") as ymlfile:
+        with open(
+            os.path.expanduser(f"{MATEMUX_DIR}/{recipe_name}.yml"), "r"
+        ) as ymlfile:
             recipe = yaml.safe_load(ymlfile)
     except FileNotFoundError:
         print(f"{recipe_name}.yml not found!")
@@ -53,3 +58,7 @@ if __name__ == "__main__":
         sys.exit()
 
     cook_session(session)
+
+
+if __name__ == "__main__":
+    main()

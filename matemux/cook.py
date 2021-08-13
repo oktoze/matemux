@@ -1,5 +1,5 @@
-from recipe import Session, Window
-from tmux import Tmux
+from matemux.recipe import Session, Window
+from matemux.tmux import Tmux
 
 
 def cook_session(session: Session):
