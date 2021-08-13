@@ -1,6 +1,10 @@
 # matemux
----
 matemux is a simple tmux session generator: it generates a session with customized window and pane layouts from a yaml file, called a recipe.
+
+## installation
+You could install using pip:
+
+`$ pip install matemux`
 
 ## usage 
 
